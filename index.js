@@ -1,20 +1,17 @@
 import { RFModule } from "@trp/react-framework/Module"
-import Auth from "./src/Auth"
 import ProtectedLayout from "./src/Layouts/ProtectedLayout"
 import PublicLayout from "./src/Layouts/PublicLayout"
+import Login from "./src/UI/Login"
 
 @RFModule({
-    Component: Auth,
-    layouts:[
-        ProtectedLayout,
-        PublicLayout
-    ],
-    layoutConfig:{
+    ModuleName: "Auth",
+    layoutComponents: {
         "App.EmptyLayout": {
-            main: "HelloWorld"
-        },
-        "App.DashboardLayout": {
-            main: "HelloWorld"
+            main: [
+                ProtectedLayout,
+                PublicLayout,
+                Login
+            ]
         }
     }
 })
